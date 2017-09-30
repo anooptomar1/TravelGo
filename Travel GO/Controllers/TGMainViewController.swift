@@ -17,7 +17,7 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
     //-------------------------------------------------------------------------
     @IBOutlet weak var sceneView: ARSCNView!
     private let groundTracker = TGGroundTracker()
-    private var didPlaceMonument: Bool = false
+    private var currentStep: Step = Step.first()
 
     //-------------------------------------------------------------------------
     // MARK: - View Lifecycle
@@ -54,12 +54,32 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
     //-------------------------------------------------------------------------
     @objc
     func didTapInSceneView(using tapGestureRecognizer: UITapGestureRecognizer) {
-        if let currentFrame = sceneView.session.currentFrame,
-            !didPlaceMonument {
+        if let currentFrame = sceneView.session.currentFrame {
+            switch currentStep {
+            case .showMonument:
+                placeMonument(with: currentFrame)
+                break
 
-            didPlaceMonument = true
-            placeRelic(with: currentFrame)
-            placeEiffelSignboard(with: currentFrame)
+            case .showMonumentInfo:
+                placeRelic(with: currentFrame)
+                placeEiffelSignboard(with: currentFrame)
+
+            default:
+                break
+
+            }
+            advanceCurrentStep()
+        }
+    }
+
+    private func advanceCurrentStep() {
+        switch currentStep {
+        case .showMonument:
+            currentStep = .showMonumentInfo
+        case .showMonumentInfo:
+            currentStep =  .showNearbyInfo
+        default:
+            currentStep = .terminated
         }
     }
 
@@ -86,6 +106,21 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
     //-------------------------------------------------------------------------
     // MARK: - Placing
     //-------------------------------------------------------------------------
+    private func placeMonument(with frame: ARFrame) {
+        let eiffel = TGVirtualObject(modelName: "tour_eiffel/EXE_Tour_Eiffel", fileExtension: "dae")
+        eiffel.loadModel()
+        sceneView.scene.rootNode.addChildNode(eiffel)
+
+        var eiffelAdjust = matrix_identity_float4x4
+        eiffelAdjust.columns.3.z = -5
+        let eiffelTransform = matrix_multiply(frame.camera.transform, eiffelAdjust)
+        eiffel.simdTransform = eiffelTransform
+
+        let scale: Float = 1
+        eiffel.scale = SCNVector3Make(scale, scale, scale)
+    }
+
+
     private func placeRelic(with frame: ARFrame) {
         let glowTrail = SCNParticleSystem(named: "glow.scnp", inDirectory: "art.scnassets")!
         glowTrail.particleColor = UIColor.orange
@@ -143,5 +178,19 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         tMatrix.columns.3.z = -0.3
         tMatrix.columns.3.x = 0.0625
         signboardNode.simdTransform = matrix_multiply(frame.camera.transform, tMatrix)
+    }
+
+    //-------------------------------------------------------------------------
+    // MARK: - Types
+    //-------------------------------------------------------------------------
+    private enum Step {
+        case showMonument
+        case showMonumentInfo
+        case showNearbyInfo
+        case terminated
+
+        static func first() -> Step {
+            return .showMonument
+        }
     }
 }
