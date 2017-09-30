@@ -11,8 +11,6 @@
 		17399F011F7FC33B00EDC326 /* TGMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17399EFF1F7FC33B00EDC326 /* TGMainViewController.swift */; };
 		17399F021F7FC33B00EDC326 /* TGMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17399F001F7FC33B00EDC326 /* TGMainViewController.xib */; };
 		17399F051F7FC62800EDC326 /* TGGroundTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17399F041F7FC62800EDC326 /* TGGroundTracker.swift */; };
-		17399F081F7FDF9200EDC326 /* TGTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17399F061F7FDF9200EDC326 /* TGTestViewController.swift */; };
-		17399F091F7FDF9200EDC326 /* TGTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17399F071F7FDF9200EDC326 /* TGTestViewController.xib */; };
 		17C867E11F7F29380040C0C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C867E01F7F29380040C0C8 /* AppDelegate.swift */; };
 		17C867E31F7F29380040C0C8 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C867E21F7F29380040C0C8 /* art.scnassets */; };
 		17C867E51F7F29380040C0C8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C867E41F7F29380040C0C8 /* ViewController.swift */; };
@@ -47,8 +45,6 @@
 		17399EFF1F7FC33B00EDC326 /* TGMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGMainViewController.swift; sourceTree = "<group>"; };
 		17399F001F7FC33B00EDC326 /* TGMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TGMainViewController.xib; sourceTree = "<group>"; };
 		17399F041F7FC62800EDC326 /* TGGroundTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGGroundTracker.swift; sourceTree = "<group>"; };
-		17399F061F7FDF9200EDC326 /* TGTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGTestViewController.swift; sourceTree = "<group>"; };
-		17399F071F7FDF9200EDC326 /* TGTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TGTestViewController.xib; sourceTree = "<group>"; };
 		17C867DD1F7F29380040C0C8 /* Travel GO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel GO.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C867E01F7F29380040C0C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C867E21F7F29380040C0C8 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -98,8 +94,6 @@
 				17C867E41F7F29380040C0C8 /* ViewController.swift */,
 				17399EFF1F7FC33B00EDC326 /* TGMainViewController.swift */,
 				17399F001F7FC33B00EDC326 /* TGMainViewController.xib */,
-				17399F061F7FDF9200EDC326 /* TGTestViewController.swift */,
-				17399F071F7FDF9200EDC326 /* TGTestViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,7 +289,6 @@
 				17399F021F7FC33B00EDC326 /* TGMainViewController.xib in Resources */,
 				17C867E31F7F29380040C0C8 /* art.scnassets in Resources */,
 				17C867ED1F7F29380040C0C8 /* LaunchScreen.storyboard in Resources */,
-				17399F091F7FDF9200EDC326 /* TGTestViewController.xib in Resources */,
 				17C867EA1F7F29380040C0C8 /* Assets.xcassets in Resources */,
 				17C867E81F7F29380040C0C8 /* Main.storyboard in Resources */,
 			);
@@ -329,7 +322,6 @@
 				17C868151F7F2B660040C0C8 /* TGVirtualObject.swift in Sources */,
 				17399EFA1F7F698400EDC326 /* TGSpaceShip.swift in Sources */,
 				17C867E11F7F29380040C0C8 /* AppDelegate.swift in Sources */,
-				17399F081F7FDF9200EDC326 /* TGTestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

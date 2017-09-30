@@ -112,7 +112,7 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(eiffel)
 
         var eiffelAdjust = matrix_identity_float4x4
-        eiffelAdjust.columns.3.z = -5
+        eiffelAdjust.columns.3.z = -100
         let eiffelTransform = matrix_multiply(frame.camera.transform, eiffelAdjust)
         eiffel.simdTransform = eiffelTransform
 
