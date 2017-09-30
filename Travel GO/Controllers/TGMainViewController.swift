@@ -130,7 +130,7 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         // Particle transforms
         var tMatrix = matrix_identity_float4x4
         tMatrix.columns.3.z = -0.3
-        tMatrix.columns.3.x = -0.0625
+        tMatrix.columns.3.y = -0.1
         let transform = matrix_multiply(frame.camera.transform, tMatrix)
 
         sceneView.scene.addParticleSystem(glowTrail, transform: SCNMatrix4(transform))
@@ -141,11 +141,7 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         sceneView.scene.rootNode.addChildNode(tinyEiffel)
 
         // Calculate tiny model transform
-        var tinyTranslate = matrix_identity_float4x4
-        tinyTranslate.columns.3.z = -0.3
-        tinyTranslate.columns.3.x = -0.0625
-        tinyTranslate.columns.3.y = -0.01
-        let tinyTransform = matrix_multiply(frame.camera.transform, tinyTranslate)
+        let tinyTransform = transform
 
         let scale: Float = 0.0004
         tinyEiffel.simdTransform = tinyTransform
@@ -176,7 +172,7 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
 
         var tMatrix = matrix_identity_float4x4
         tMatrix.columns.3.z = -0.3
-        tMatrix.columns.3.x = 0.0625
+        tMatrix.columns.3.y = 0.05
         signboardNode.simdTransform = matrix_multiply(frame.camera.transform, tMatrix)
     }
 
