@@ -48,12 +48,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, CAAnimationDelegate {
         // Configure the scene view
         // sceneView.debugOptions = [.showWireframe]
 
-        // Preload  sounds
-        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-        [acmtBgSound, acmtFgSound, infoSound].forEach { sound in
-            sound.loops = false
-            sound.load()
-        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -19,6 +19,15 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
     private let groundTracker = TGGroundTracker()
     private var currentStep: Step = Step.first()
 
+    private var activateBackgroundSound = SCNAudioSource(named: "art.scnassets/achievement_background.aif")!
+    private var activateForegroundSound = SCNAudioSource(named: "art.scnassets/achievement_foreground.aif")!
+    private var infoSound = SCNAudioSource(named: "art.scnassets/info")!
+
+    private var relicNode: SCNNode?
+    private var relicGlowParticleSystem: SCNParticleSystem?
+    private var monumentSignboardNode: SCNNode?
+
+
     //-------------------------------------------------------------------------
     // MARK: - View Lifecycle
     //-------------------------------------------------------------------------
@@ -27,6 +36,7 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
 
         // Do any additional setup after loading the view.
         configureARScene()
+        preloadSounds()
 
         // Add tap gesture recognition
         sceneView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(TGMainViewController.didTapInSceneView(using:))))
@@ -47,6 +57,15 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         sceneView.session.run(configuration)
+    }
+
+    private func preloadSounds() {
+        // Preload  sounds
+        try! AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        [activateBackgroundSound, activateForegroundSound, infoSound].forEach { sound in
+            sound.loops = false
+            sound.load()
+        }
     }
 
     //-------------------------------------------------------------------------
@@ -156,6 +175,10 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         spin.duration = 2
         // spin.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         tinyEiffel.addAnimation(spin, forKey: "spin")
+
+        // Add sound effects
+        tinyEiffel.addAudioPlayer(SCNAudioPlayer(source: activateForegroundSound))
+        tinyEiffel.addAudioPlayer(SCNAudioPlayer(source: activateBackgroundSound))
     }
 
     private func placeEiffelSignboard(with frame: ARFrame) {
@@ -174,6 +197,19 @@ class TGMainViewController: UIViewController, ARSCNViewDelegate {
         tMatrix.columns.3.z = -0.3
         tMatrix.columns.3.y = 0.05
         signboardNode.simdTransform = matrix_multiply(frame.camera.transform, tMatrix)
+    }
+
+    func hideRelicAndShowNearbyInfo() {
+        if let relicNode = self.relicNode,
+            let relicGlowParticleSystem = self.relicGlowParticleSystem,
+            let monumentSignboardNode = self.monumentSignboardNode {
+
+            let relicShrinkAnimation = CABasicAnimation(keyPath: "scale")
+            relicShrinkAnimation.fromValue = relicNode.scale
+            relicShrinkAnimation.toValue   = SCNVector3Zero
+            
+        }
+
     }
 
     //-------------------------------------------------------------------------
