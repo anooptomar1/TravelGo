@@ -22,6 +22,7 @@
 		17C868151F7F2B660040C0C8 /* TGVirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C868141F7F2B660040C0C8 /* TGVirtualObject.swift */; };
 		17C868171F7F2E380040C0C8 /* TGCheckPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C868161F7F2E380040C0C8 /* TGCheckPoint.swift */; };
 		911A36B69B853181C93879B9 /* Pods_Travel_GO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B85E2CD190F2D55B8075CD8 /* Pods_Travel_GO.framework */; };
+		AB503ECF1F808A560039261D /* TGPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB503ECE1F808A560039261D /* TGPlace.swift */; };
 		AED755FB3A248574AB3FE609 /* Pods_Travel_GOUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2B70782033A450838C95F84 /* Pods_Travel_GOUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		25A224D913F66B279E32E027 /* Pods_Travel_GOTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_GOTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32CA7077E3ACE61D2D299CEB /* Pods-Travel GO.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel GO.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel GO/Pods-Travel GO.debug.xcconfig"; sourceTree = "<group>"; };
 		775FE132D6D7E211C699F0ED /* Pods-Travel GOUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel GOUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel GOUITests/Pods-Travel GOUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AB503ECE1F808A560039261D /* TGPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TGPlace.swift; sourceTree = "<group>"; };
 		B2B70782033A450838C95F84 /* Pods_Travel_GOUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_GOUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83D53878E92C44099F66FB2 /* Pods-Travel GOTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel GOTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travel GOTests/Pods-Travel GOTests.release.xcconfig"; sourceTree = "<group>"; };
 		FC60732D223DBEE74F4B5114 /* Pods-Travel GOUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travel GOUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travel GOUITests/Pods-Travel GOUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				17663BCF1F807D700069A294 /* TGPathProcessor.swift */,
+				AB503ECE1F808A560039261D /* TGPlace.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB503ECF1F808A560039261D /* TGPlace.swift in Sources */,
 				17399F011F7FC33B00EDC326 /* TGMainViewController.swift in Sources */,
 				17C868171F7F2E380040C0C8 /* TGCheckPoint.swift in Sources */,
 				17399F051F7FC62800EDC326 /* TGGroundTracker.swift in Sources */,
